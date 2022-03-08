@@ -1,39 +1,38 @@
 # CMake JUCE Prototype
-A prototype to model a way to create an entire repo using JUCE 6 and CMake.
+A prototype for using CMake and JUCE 6.
 
-This is inspired by a desire to keep the environment setting of my projects to minimum,
-making sure the environment is identical for every developer/machine.
+The goal is to keep environment management to a minimum,
+and create consistency across devs and machines.
 
-The main concept is to set all the different variables (where JUCE is, custom modules, etc) 
-in the top CMakeLists.txt, then add all your projects with very little setup time.
+Project resource variables (JUCE files, custom modules, etc) 
+are in the top CMakeLists.txt. This streamlines new projects by reducing setup time.
 
-Another important concept is to share all 'related' projects under the same configuration,
-which I prefer, since it encourages code-sharing and build system settings sharing.
-In some of the examples I added minimal usages of juce-style modules to illustrate how that
-can be done.
+Another benefit is realized through the sharing of related projects and modules under the same configuration.
+This encourages both code and build system settings sharing.
 
-To build, all you have to do is load this project in your favorite IDE 
-(CLion/Visual Studio/VSCode/etc) 
-and click 'build' for one of the targets (templates, JUCE examples, Projucer, etc).
+##Build
 
-You can also generate a project for an IDE by using (Mac):
+To build, open this project in an IDE
+and click 'build' for one of the targets.
+
+A project can also be generated for Xcode using:
 ```
 cmake -G Xcode -B build
 ```
-Windows:
+Or Visual Studio for Windows using:
 ```
 cmake -G "Visual Studio 16 2019" -B build
 ```
-For package management, I'm using the amazing CPM.cmake:
-#https://github.com/TheLartians/CPM.cmake
-It automatically fetches JUCE from git, but you can also set the variable:
-CPM_JUCE_SOURCE to point it to a local folder, by using:
-``-DCPM_JUCE_SOURCE="Path_To_JUCE"``
-when invoking CMake
+For package management [CPM.cmake](https://github.com/TheLartians/CPM.cmake) is used.
 
-JUCE can be found here:
-#https://github.com/juce-framework/JUCE
+CPM automatically fetches JUCE from GitHub, but you can also use the variable:
+CPM_JUCE_SOURCE to point to a local JUCE folder using:
+``-DCPM_JUCE_SOURCE="Path_To_JUCE"``
+when invoking CMake.
+
+More information on JUCE can be found [here](https://github.com/juce-framework/JUCE).
+
 
 License:
-Anything from me in this repo is completely free to use for any purpose. 
-However, please check the licenses for CPM and JUCE as described in their repo. 
+Everything in this repo is free to use for any purpose. Please consult the CPM and JUCE repos
+for their respective licensing information.
